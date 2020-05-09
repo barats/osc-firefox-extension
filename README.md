@@ -6,7 +6,7 @@
 ![latest-snapshot](https://oscimg.oschina.net/oscnet/up-1add16323d59cc54b31fdd41e41d5fe2326.JPEG)
 
 #### 安装方式
-1. 在仓库发行版页面下载最新发布版 zip 文件
+1. 在仓库[发行版页面](https://gitee.com/barat/osc-firefox-extension/releases)下载最新发布版 zip 文件
 2. 打开 Firefox 浏览器 Add-ons Manager 页面（地址栏输入 about:addons）
 3. 上述页面按钮中选择「Debug add-ons」打开调试页面（亦即 about:debugging#/runtime/this-firefox）
 4. 在页面中选择「Load Temporary Add-ons」并选择下载的 zip 文件
