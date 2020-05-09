@@ -1,0 +1,22 @@
+{
+    "name": "开源中国",
+    "version": "0.1",
+    "description": "开源中国(oschina.net) Chrome 浏览器插件",
+    "background": {
+        "scripts": ["js/background.js"]
+    },
+    "browser_action": {
+        "default_title": "开源中国"
+    },
+    "icons": {
+        "128": "icon_128.png"
+    },
+    "permissions": [
+        "tabs",
+        "webNavigation",
+        "https://*.oschina.net/*",
+        "bookmarks",
+        "storage"
+    ],
+    "manifest_version": 2
+}
