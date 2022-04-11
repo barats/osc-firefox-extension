@@ -19,6 +19,9 @@ const RSS_RECOMM_BLOGS = 'https://www.oschina.net/blog/rss';
 //博客前缀
 const RSS_RECOMM_BLOGS_CATEGORY_PREFIX = 'https://www.oschina.net/blog/rss?cid=';
 
+//专区文章前缀
+const RSS_CIRCLE_ARTICLES_PREFIX = 'https://www.oschina.net/groups/rss?ident=';
+
 //UTM_SOURCE 配置
 const UTM_SOURCE_STR = 'utm_source=oschina-firefox-extension';
 

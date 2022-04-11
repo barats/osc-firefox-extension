@@ -331,6 +331,21 @@ function getQuestionsListRssData(selectedValue = '1') {
     getRssData(RSS_QUESTIONS_PREFIX + selectedValue, 'questions-list');
 }
 
+/**
+ * 获取专区文章数据
+ * @param selectedValue
+ */
+ function getCircleArticlesListRssData(selectedValue = 'cross-front') {
+    Utils.chromePlugin.storageSet({ map: { 'circleArticlesListSelected': selectedValue }, prefix: 'config' })
+    handleSelect('circle-selector', selectedValue);
+    setLoadingLabel('blogs-list');
+    if (selectedValue === 'cross-front') {
+        getRssData(RSS_CIRCLE_ARTICLES_PREFIX + 'cross-front', 'blogs-list');
+    } else {
+        getRssData(RSS_CIRCLE_ARTICLES_PREFIX + selectedValue, 'blogs-list');
+    }
+}
+
 function handleSelect(selectId, val) {
     const ele = document.getElementById(selectId);
     if (ele.value === val) {
@@ -349,7 +364,8 @@ document.addEventListener('DOMContentLoaded', async function () {
     // DOM内容加载完成之后，开始获取数据并展示
     getRssNewsRssData(config.rssNewsSelected); //最新资讯
     getQuestionsListRssData(config.questionsListSelected); //最新发布问答
-    getBlogsListRssData(config.blogsListSelected); //最新推荐博客
+    //getBlogsListRssData(config.blogsListSelected); //最新推荐博客
+    getCircleArticlesListRssData(config.circleArticlesListSelected);//专区文章列表
     getProjectsListRssData(config.projectsListSelected); //最新收录开源软件
 
     // //下载源码按钮点击事件
@@ -388,9 +404,9 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     //标题「推荐博客」的点击事件
     document.getElementById('blogs-title').onclick = function (event) {
-        var selectedValue = document.getElementById('blogs-selector').value;
+        var selectedValue = document.getElementById('circle-selector').value;
         if (selectedValue) {
-            getBlogsListRssData(selectedValue)
+            getCircleArticlesListRssData(selectedValue);//专区文章列表
         }
     };
 
@@ -415,10 +431,10 @@ document.addEventListener('DOMContentLoaded', async function () {
         document.getElementById('news-title').click();
     };
 
-    //博客：下拉框的变化事件
-    document.getElementById('blogs-selector').onchange = function (event) {
+    //专区文章：下拉框的变化事件
+    document.getElementById('circle-selector').onchange = function (event) {
         document.getElementById('blogs-title').click();
-    };
+    };    
 
     //问答：下拉框的变化事件
     document.getElementById('questions-selector').onchange = function (event) {
